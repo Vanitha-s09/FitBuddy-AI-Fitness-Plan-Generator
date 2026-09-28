@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitBuddy - Your Fitness Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f0f0f0;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-family: Arial, sans-serif;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>💪 FitBuddy</h1>
+
+        <h2>Hello, {{ user.name }}!</h2>
+
+        <p><strong>User ID:</strong> {{ user.user_id }}</p>
+        <p><strong>Age:</strong> {{ user.age }}</p>
+        <p><strong>Goal:</strong> {{ user.goal }}</p>
+        <p><strong>Intensity:</strong> {{ user.intensity }}</p>
+
+        <div class="section">
+            <h2>🏋️ Your 7-Day Workout Plan</h2>
+            <pre>{{ user.workout_plan }}</pre>
+        </div>
+
+        <div class="section">
+            <h2>🥗 Nutrition & Recovery Tips</h2>
+            <pre>{{ user.nutrition_tip }}</pre>
+        </div>
+
+        <a href="/">← Create Another Plan</a>
+
+    </div>
+</body>
+</html>

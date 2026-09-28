@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        FitBuddy - AI Fitness Plan Generator
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <div class="header">
+
+        <div class="logo">
+            🏋️
+        </div>
+
+        <h1>
+            FitBuddy
+        </h1>
+
+        <p>
+            AI Fitness Plan Generator
+        </p>
+
+        <span class="powered">
+            Powered by Gemini AI
+        </span>
+
+    </div>
+
+
+
+    {% if error %}
+
+    <div class="error">
+
+        <strong>
+            Error:
+        </strong>
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+
+
+    <div class="card">
+
+
+        <h2>
+            Create Your Fitness Plan
+        </h2>
+
+        <p class="subtitle">
+            Enter your details and let AI create
+            a personalized 7-day fitness plan.
+        </p>
+
+
+
+        <form
+            action="/generate"
+            method="post"
+        >
+
+
+            <div class="form-group">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    User ID
+                </label>
+
+                <input
+                    type="text"
+                    name="user_id"
+                    placeholder="Example: FB001"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        name="age"
+                        min="13"
+                        max="100"
+                        placeholder="Age"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Weight
+                        <span>
+                            (Optional)
+                        </span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="weight"
+                        placeholder="Example: 60 kg"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Fitness Goal
+                </label>
+
+                <select
+                    name="goal"
+                    required
+                >
+
+                    <option value="">
+                        Select your goal
+                    </option>
+
+                    <option value="General Fitness">
+                        General Fitness
+                    </option>
+
+                    <option value="Build Strength">
+                        Build Strength
+                    </option>
+
+                    <option value="Improve Flexibility">
+                        Improve Flexibility
+                    </option>
+
+                    <option value="Improve Endurance">
+                        Improve Endurance
+                    </option>
+
+                    <option value="Stay Active">
+                        Stay Active
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Workout Intensity
+                </label>
+
+                <select
+                    name="intensity"
+                    required
+                >
+
+                    <option value="">
+                        Select intensity
+                    </option>
+
+                    <option value="Beginner">
+                        Beginner
+                    </option>
+
+                    <option value="Moderate">
+                        Moderate
+                    </option>
+
+                    <option value="Advanced">
+                        Advanced
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="generate-button"
+            >
+
+                ✨ Generate My Fitness Plan
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+
+    <div class="features">
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>
+                AI Powered
+            </h3>
+
+            <p>
+                Gemini AI creates your
+                personalized fitness plan.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                📅
+            </div>
+
+            <h3>
+                7-Day Plan
+            </h3>
+
+            <p>
+                Get a complete weekly
+                workout schedule.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🥗
+            </div>
+
+            <h3>
+                Wellness Tips
+            </h3>
+
+            <p>
+                Get simple nutrition and
+                recovery guidance.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    {% if users %}
+
+
+    <div class="card">
+
+        <h2>
+            👥 Saved Users
+        </h2>
+
+
+        {% for user in users %}
+
+
+        <div class="user-item">
+
+            <div>
+
+                <strong>
+                    {{ user.name }}
+                </strong>
+
+                <small>
+                    ID: {{ user.user_id }}
+                </small>
+
+            </div>
+
+
+            <span class="goal-tag">
+
+                {{ user.goal }}
+
+            </span>
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+    {% endif %}
+
+
+
+    <footer>
+
+        FitBuddy © 2026
+
+    </footer>
+
+
+</div>
+
+
+</body>
+
+</html>
