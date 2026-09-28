@@ -36,8 +36,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-         pytest
-    status=$?
-    if [ $status -ne 0 ] && [ $status -ne 5 ]; then
-      exit $status
-    fi
+        pytest
+        status=$?
+        if [ $status -ne 0 ] && [ $status -ne 5 ]; then
+        exit $status
+          fi
