@@ -2,6 +2,8 @@ from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+
 from .database import Base, engine
 from .routes import router
 
@@ -24,6 +26,14 @@ templates = Jinja2Templates(
 )
 
 app.state.templates = templates
+
+
+app.mount(
+    "/static",
+    StaticFiles(directory=str(BASE_DIR / "static")),
+    name="static"
+)
+
 
 app.include_router(router)
 
