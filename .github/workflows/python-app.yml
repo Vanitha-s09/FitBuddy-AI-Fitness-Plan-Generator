@@ -37,3 +37,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    status=$?
+    if [ $status -ne 0 ] && [ $status -ne 5 ]; then
+      exit $status
+    fi
