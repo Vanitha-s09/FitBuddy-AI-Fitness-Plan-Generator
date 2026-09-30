@@ -8,4 +8,4 @@ Google Drive link
 https://fitbuddy-ai-fitness-plan-generator-oxxj.onrender.com
 
 💻 GitHub:
-GitHub repository link
+https://github.com/Vanitha-s09/FitBuddy-AI-Fitness-Plan-Generator.git
